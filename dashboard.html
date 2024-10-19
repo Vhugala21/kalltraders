@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Activate Amaar Bot</h1>
+        <form id="brokerForm">
+            <label for="broker">Select Broker:</label>
+            <select id="broker">
+                <option value="Exness">Exness</option>
+                <option value="Accumarkets">Accumarkets</option>
+            </select>
+
+            <label for="brokerServer">Broker Server:</label>
+            <input type="text" id="brokerServer" required>
+
+            <label for="loginID">Login ID:</label>
+            <input type="text" id="loginID" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Activate Amaar</button>
+        </form>
+
+        <button id="stopBtn">Stop Amaar</button>
+        <a href="storeData.html">Go to Admin</a>
+    </div>
+
+    <script>
+        document.getElementById("brokerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const broker = document.getElementById("broker").value;
+            const brokerServer = document.getElementById("brokerServer").value;
+            const loginID = document.getElementById("loginID").value;
+            const password = document.getElementById("password").value;
+
+            // Save the data in local storage
+            const userData = { broker, brokerServer, loginID, password };
+            let storedData = JSON.parse(localStorage.getItem("userData")) || [];
+            storedData.push(userData);
+            localStorage.setItem("userData", JSON.stringify(storedData));
+
+            alert("Amaar bot activated successfully!");
+        });
+
+        document.getElementById("stopBtn").addEventListener("click", function() {
+            alert("Amaar bot stopped successfully!");
+        });
+    </script>
+</body>
+</html>

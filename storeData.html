@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stored User Data</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="data-container" id="dataContainer" style="display:none;">
+        <h1>Stored User Data</h1>
+        <ul id="userDataList">
+            <!-- User data will be dynamically populated here -->
+        </ul>
+    </div>
+
+    <script>
+        // Define the correct PIN
+        const correctPin = "20031020";
+
+        // Prompt for PIN on page load
+        const enteredPin = prompt("Please enter the PIN:");
+
+        if (enteredPin === correctPin) {
+            alert("Welcome Kall");
+            document.getElementById("dataContainer").style.display = "block"; // Show the data container
+            loadData(); // Load user data
+        } else {
+            alert("Fuck you, stop what you are doing!");
+            // Optionally redirect or close the page
+            window.location.href = "admin.html"; // Redirect to admin or login page
+        }
+
+        function loadData() {
+            const storedData = JSON.parse(localStorage.getItem("userData")) || [];
+            const userDataList = document.getElementById("userDataList");
+
+            storedData.forEach(user => {
+                const listItem = document.createElement("li");
+                listItem.textContent = "Broker: " + user.broker + ", Server: " + user.brokerServer + ", Login ID: " + user.loginID + ", Password: " + user.password;
+                userDataList.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>

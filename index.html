@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="mentorID">Mentor ID:</label>
+            <input type="text" id="mentorID" required>
+            
+            <label for="key">Key:</label>
+            <input type="password" id="key" required>
+            
+            <button type="submit">Login</button>
+            <p id="errorMsg" style="color:red; display:none;">Wrong information</p>
+        </form>
+
+        <a href="admin.html">Admin Login</a>
+    </div>
+
+    <script>
+        const validMentorID = "25266157"; // Replace this with actual Mentor ID
+        const validKeys = [
+            "5272653MV", "20040721MV", "6743452MV", 
+        ];
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const mentorID = document.getElementById("mentorID").value;
+            const key = document.getElementById("key").value;
+
+            if (mentorID === validMentorID && validKeys.includes(key)) {
+                window.location.href = "dashboard.html"; // Redirect to dashboard
+            } else {
+                document.getElementById("errorMsg").style.display = "block"; // Show error
+            }
+        });
+    </script>
+</body>
+</html>

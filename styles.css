@@ -1,0 +1,77 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background: url('https://i.ytimg.com/vi/oZJmOw9J3MQ/maxresdefault.jpg') no-repeat center center fixed; /* Add your background image here */
+    background-size: cover; /* Ensure the background covers the whole screen */
+    margin: 0;
+    padding: 0;
+}
+
+.login-container, .dashboard-container, .data-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(18, 205, 238, 0.8); /* Slightly transparent background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #6dbdb2;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .login-container, .dashboard-container, .data-container {
+        padding: 15px;
+    }
+
+    button {
+        padding: 12px;
+    }
+
+    input, select {
+        padding: 12px;
+    }
+}

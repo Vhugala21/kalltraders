@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Admin Login</h1>
+        <form id="adminLoginForm">
+            <label for="adminID">Admin ID:</label>
+            <input type="text" id="adminID" required>
+            
+            <label for="adminKey">Admin Key:</label>
+            <input type="password" id="adminKey" required>
+            
+            <button type="submit">Login</button>
+            <p id="adminErrorMsg" style="color:red; display:none;">Wrong Admin credentials</p>
+        </form>
+    </div>
+
+    <script>
+        const validAdminID = "20040721";  // Replace with actual Admin ID
+        const validAdminKey = "Vhugala21@";  // Replace with actual Admin Key
+
+        document.getElementById("adminLoginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const adminID = document.getElementById("adminID").value;
+            const adminKey = document.getElementById("adminKey").value;
+
+            if (adminID === validAdminID && adminKey === validAdminKey) {
+                window.location.href = "storedData.html"; // Redirect to stored data page
+            } else {
+                document.getElementById("adminErrorMsg").style.display = "block"; // Show error
+            }
+        });
+    </script>
+</body>
+</html>
